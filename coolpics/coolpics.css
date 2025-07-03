@@ -3,7 +3,7 @@
 :root {
   --primary-color: #52489c;
   --secondary-color: #59c3c3;
-  --accent-color: #f45b69;
+  --accent-color: #fafafa;
   --text-dark: #333;
   --text-light: #ebebeb;
   --primary-font: Arial, Helvetica, sans-serif;
@@ -45,22 +45,34 @@ a:visited {
   background: none;
   border: none;
   color: var(--text-light);
-  font-size: 1em;
+  font-size: 1.2em;
   cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: none; 
+  margin: 0 auto;
 }
 
 main, h2 {
   text-align: center;
 }
 
-#main-nav ul {
-  list-style: none;
+#main-nav {
   display: none;
-  padding: 0;
+}
+#main-nav.open {
+  display: flex;
 }
 
-#main-nav li {
-  padding: 0.5em 0;
+@media screen and (min-width: 601px) {
+  #main-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  #menu-button {
+    display: none;
+  }
 }
 
 .gallery {
@@ -105,17 +117,20 @@ footer {
   }
 }
 
-#main-nav ul {
+@media screen and (max-width: 600px) {
+  #main-nav {
+    display: none; 
+  }
+
+  #main-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 #main-nav a {
   text-decoration: none;
-  color: var(--text-light);
+  color: var(--text-light); 
 }
-
 #menu-button {
   background: none;
   border: none;
@@ -123,33 +138,41 @@ footer {
   font-size: 1.2em;
   cursor: pointer;
   padding: 0.5rem 1rem;
-  display: block;
+  display: none;
   margin: 0 auto;
+}
+  #main-nav ul li {
+    padding: 0.5rem 0;
+  }
+
 }
 
 @media screen and (max-width: 699px) {
+  #menu-button {
+    display: none;
+  }
+
   #main-nav {
     display: block;
     text-align: center;
   }
 
   #main-nav ul {
-    display: block;
-  }
-
-  #main-nav ul li {
-    padding: 0.5rem;
-  }
-
-  #menu-button {
-    display: block;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--primary-color);
   }
 }
 
 @media screen and (min-width: 700px) and (max-width: 999px) {
+  #menu-button {
+    display: block;
+  }
+
   #main-nav {
     display: none;
-    text-align: center;
   }
 
   #main-nav.open {
@@ -157,20 +180,13 @@ footer {
   }
 
   #main-nav ul {
-    display: block;
-  }
-
-  #main-nav ul li {
-    padding: 0.5rem;
-  }
-
-  #menu-button {
-    display: block;
-    text-align: center;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--primary-color);
+    padding: 1rem;
   }
 }
-
 @media screen and (min-width: 1000px) {
   #menu-button {
     display: none;
@@ -181,13 +197,15 @@ footer {
   }
 
   #main-nav ul {
+    list-style: none;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 2rem;
   }
 
-  #main-nav ul li {
-    border: none;
+  #main-nav a {
+    color: var(--text-light); 
+    text-decoration: none;
   }
 }
-

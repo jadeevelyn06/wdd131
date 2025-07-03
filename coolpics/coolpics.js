@@ -1,19 +1,43 @@
+const menuButton = document.getElementById("menu-button");
+const mainNav = document.getElementById("main-nav");
 
-//this is dumb. this didnt work
-//but when i rewrote it the same exact way, it did work???????!!!?!?!?!?
-//javascript makes me sad. 
 
-//the way none of this makes any sense at all. 
-//i watched like 10 youtube videos today and nothing helped. 
-//0 of the info went into my brain i think . 
-//ugh.
-//}); lol
+menuButton.addEventListener("click", () => {
+  mainNav.classList.toggle("open");
+});
 
-const menuButton = document.getElementById('menu-button');
-const nav = document.getElementById('main-nav');
+const gallery = document.querySelector(".gallery");
+const viewer = document.createElement("dialog");
+viewer.classList.add("viewer");
+viewer.innerHTML = `
+  <div class="viewer-box">
+    <button class="close-viewer">X</button>
+    <img src="" alt="">
+  </div>
+`;
 
-menuButton.addEventListener('click', () => {
-  if (window.innerWidth >= 700 && window.innerWidth < 1000) {
-    nav.classList.toggle('open');
+
+document.body.appendChild(viewer);
+const closeButton = viewer.querySelector(".close-viewer");
+const viewerImage = viewer.querySelector("img");
+closeButton.addEventListener("click", () => {
+  viewer.close();
+});
+viewer.addEventListener("cancel", (e) => e.preventDefault());
+viewer.addEventListener("click", (e) => {
+  if (e.target === viewer) {
+    e.stopPropagation();
   }
+});
+
+
+gallery.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target.tagName.toLowerCase() !== "img") return;
+  const src = target.getAttribute("src");
+  const alt = target.getAttribute("alt");
+  const fullSrc = src.split("-")[0] + "-full.jpeg";
+  viewerImage.src = fullSrc;
+  viewerImage.alt = alt;
+  viewer.showModal();
 });
