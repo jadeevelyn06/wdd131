@@ -1,10 +1,9 @@
-const menuButton = document.getElementById("menu-button");
-const mainNav = document.getElementById("main-nav");
+const menuButton = document.getElementById('menu-button');
+  const nav = document.getElementById('main-nav');
 
-
-menuButton.addEventListener("click", () => {
-  mainNav.classList.toggle("open");
-});
+  menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
 
 const gallery = document.querySelector(".gallery");
 const viewer = document.createElement("dialog");
