@@ -134,7 +134,7 @@ article {
 article time {
   margin: 0.25rem 0;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #473144;
 }
 .article-item {
@@ -143,22 +143,30 @@ article time {
   gap: 1.5rem;
   border-bottom: 1px solid #EFC69B;
   padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
 }
 .article-details p {
   margin: 0.25rem 0;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: right;
   color: #473144;
+}
+.article-details {
+  border-right: 1px solid #EFC69B;
+  padding: 0 1rem;
 }
 .article-content h2 {
   font-family: 'Lora', serif;
-  margin-top: 0;
+  margin-top: 0.25rem;
   color: #AF1B3F;
 }
 .article-content img {
   max-width: 200px;
   display: block;
-  margin: 1rem 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .article-content p {
   font-family: Helvetica, Arial, sans-serif;
@@ -171,11 +179,12 @@ article time {
   color: #473144;
 }
 footer {
-  background-color: #473144;
-  color: white;
+   font-family: 'Lora', serif;
+  font-size: 3rem;
   text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  margin: 0;
+  padding: 1rem 0;
+  color: #473144;
 }
 .filters {
   font-family: Helvetica, Arial, sans-serif;
@@ -189,7 +198,7 @@ footer {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
